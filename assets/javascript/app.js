@@ -4,24 +4,29 @@ $(document).ready(function(){
     $("#start-button").on("click", startTrivia.startTimer);
 
 });
-
+``
 // Global Variables
+var questions = []
+var answer
+var right = 0;
+var wrong = 0;
+var timer
 
-// Timer to start the question
+// User clicks start button to begin trivia
 
-// Questions to appear on screen with answers to select
+// Timer starts when the first question is prompted
 
-// After an answer is selected, user will be notified whether they're right or wrong.
+// Questions to appear on screen with answers to select. Questions will rotate randomly through the question bank.
 
-// Move on to the next question
-
-// Randomize questions every time
-
-// Tally all the right and wrong answers
+// After an answer is selected, user will be notified whether they're right or wrong. Add to the correct/wrong scoreboard as it goes along.
 
 // Announce in the end of the user has won or lost
 
-// Restart game with a new set of questions
+// Give the option to play again
+
+// If they chose yes, restart game with a new set of questions
+
+// If they chose no, bring up sad giphy
 
 // Question bank
 
@@ -65,4 +70,13 @@ var questionBank = [
     {question: "How many vasectomies does Michael claim to have had?",
     answer: ["One", "Two", "Three", "Four"],
     correct: "Three"},
+
+    {question: "What musical did Jan and Michael see while dating? (Hint: It was mentioned at the dinner party in season 4.)",
+    answer: ["Cats", "Wicked", "Stomp", "Rent"],
+    correct: "Wicked"},
+
+    {question: "When Pam was office manager in Season 7, she made everyone write down their New Year's Resolution. What was Michael's?",
+    answer: ["Floss", "To do a cartwheel", "Help Kevin eat broccoli", "Drink less caffeine"],
+    correct: "Floss"},
+
 ]
