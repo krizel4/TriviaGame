@@ -5,12 +5,21 @@ $(document).ready(function(){
 
 });
 ``
-// Global Variables
+// Global Variables and Trivia Variables
 var questions = []
-var answer
-var right = 0;
+var answers 
+var correct = 0;
 var wrong = 0;
-var timer
+var timer = 10;
+var interval = setInterval(function(){
+  document.getElementById('timer').innerHTML=timer;
+  count--;
+  if (count === 0){
+    clearInterval(interval);
+    document.getElementById('timer').innerHTML='Done';
+  }
+}, 1000);
+
 
 // User clicks start button to begin trivia
 
