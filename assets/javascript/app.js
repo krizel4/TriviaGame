@@ -32,18 +32,18 @@ $("#reset").on("click", function(){
     newGame();
 });
 
-function newGame(){
-    $("#startGame").show();
-    $("#finalScore").empty();
-    $("#correctAnswers").empty();
-    $("#incorrectAnswers").empty();
-    $("#unanswered").empty();
-    currentQuestion = 0;
-    right = 0;
-    wrong = 0;
-    unanswered = 0;
-    newQuestion();
-}
+    function newGame(){
+        $("#startGame").show();
+        $("#finalScore").empty();
+        $("#correctAnswers").empty();
+        $("#incorrectAnswers").empty();
+        $("#unanswered").empty();
+        currentQuestion = 0;
+        right = 0;
+        wrong = 0;
+        unanswered = 0;
+        newQuestion();
+    }
 
 //==============
 // QUESTIONS
@@ -51,29 +51,29 @@ function newGame(){
 
 function newQuestion(){
     
-    // Question number
-    $("#currentQuestion").html("Question " + (currentQuestion+1));
-    $(".question").html(questionBank[currentQuestion].question);
+// Question number
+$("#currentQuestion").html("Question " + (currentQuestion+1));
+$(".question").html(questionBank[currentQuestion].question);
 
-    // Question loop
-    for(var i = 0; i <= 5; i++){
-        var choices = $("<div>");
-        choices.text(questionBank[currentQuestion].choicesList[i]);
-        choices.attr({"data-index": i });
-        choices.addClass("thisChoice");
-        $(".choicesList").append(choices);
-    }
+// Question loop
+for(var i = 0; i <= 10; i++){
+    var choices = $("<div>");
+    choices.text(questionBank[currentQuestion].choicesList[i]);
+    choices.attr({"data-index": i });
+    choices.addClass("thisChoice");
+    $(".choicesList").append(choices);
+}
 
-    // Question results with image
-    $("#result").empty();
-    $("#correctedAnswer").empty();
-    answered === true;
+// Question results with image
+$("#result").empty();
+$("#correctedAnswer").empty();
+answered = true;
 
 //==============
 // TIMER
 //==============
 function countdown(){
-    seconds = 10;
+    seconds = 5;
     $("#timeTitle").html("<h3>Time Remaining");    
     $("#timeLeft").html(seconds);
     answered === true;
@@ -91,7 +91,7 @@ $(".thisChoice").on("click",function(){
     
 function showCountdown(){
     seconds--;
-    if(seconds < 10) {
+    if(seconds < 5) {
         $("#timeLeft").html(seconds);	
     } else {
         $("#timeLeft").html(seconds);	
@@ -110,25 +110,25 @@ function answerPage(){
     $("#currentQuestion").empty();
     $(".thisChoice").empty(); 
     $(".question").empty();
-    
+
 var rightAnswerText = questionBank[currentQuestion].choicesList[questionBank[currentQuestion].answer];
 var rightAnswers = questionBank[currentQuestion].answer;
     
 // Check answers          
 if((userChoice == rightAnswers) && (answered === true)){
     right++;
-    $("#result").html(results[result].correct);
+    $("#result").html(results.correct);
 } else if((userChoice != rightAnswers) && (answered === true)){
     wrong++;
-    $("#result").html(results.incorrect);
+    $("#result").html(results.wrong);
     $("#correctedAnswer").append("The correct answer was: " + "<br/>" + rightAnswerText);
 } else{
     unanswered++;
     $("#result").html(results.timeOut);
     $("#correctedAnswer").append("The correct answer was: " + "<br/>" + rightAnswerText);
-    answered === true;
+    answered = true;
 }
-if(currentQuestion === (questionBank.length-1)){
+if(currentQuestion == (questionBank.length-1)){
     setTimeout(scoreboard, 2000);
 } else{
     currentQuestion++;
@@ -147,15 +147,15 @@ function scoreboard(){
     $("#correctAnswers").html("Right: " + right);
     $("#wrongAnswers").html("Wrong: " + wrong);
     $("#unanswered").html("Missed: " + unanswered);
-    $("#reset").addClass("reset");
+    $("#reset").addClass("btn btn-dark");
     $("#reset").show();
-    $("#reset").html("I'm not superstitious, but I'm a little-stitious. Try again.");
+    $("#reset").html("Are you a little-stitious? Try again.");
 }
     
 //==============
-// QUESTION BANK
+// SCOREBOARD
 //==============
-var questionBank = [
+   var questionBank = [
     {question: "When Jim impersonates he gives a list after saying, 'Bears eat beets.' What was the list?",
     choicesList: ["Bears. Beets. Battlestar Galactica", "Beets. Bears. Battlestar Galactica", "Beets, bears, beets", "Battlestar Galactica, Beets, Bears" ],
     answer: 0,
@@ -185,7 +185,7 @@ var questionBank = [
     choicesList: ["Jim Halpert", "Creed Bratton", "Meredith Palmer", "Ryan Howard"],
     answer: 3,
     correct: "Ryan Howard"},
-
+  
     {question: "Which of these things does Prison Mike NOT claim to have been busted for?",
     choicesList: ["Stole", "Robbed", "Hurt a dementor", "Kidnapped president's son"],
     answer: 2,
@@ -204,14 +204,14 @@ var questionBank = [
     {question: "When Pam was office manager in Season 7, she made everyone write down their New Year's Resolution. What was Michael's?",
     choicesList: ["Floss", "To do a cartwheel", "Help Kevin eat broccoli", "Drink less caffeine"],
     answer: 0,
-    correct: "Floss"},
-    ]
+    correct: "Floss"}
 
-//==============
-// RESULTS
-//==============
-var results = {correct: "You and I are soup snakes.",
+]
+
+var results = {
+    correct: "You and I are soup snakes.",
     wrong: "Before I do anything I ask myself, 'Would an idiot do that?' and if the answer is yes, I do not do that thing.",
-    timeOut: "Times up. You all took a life here today. The life of the party."
-    };
+    timeOut: "Times up. You all took a life here today. The life of the party.",
+};
+    
 }); 
