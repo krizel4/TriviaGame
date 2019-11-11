@@ -73,7 +73,7 @@ answered = true;
 // TIMER
 //==============
 function countdown(){
-    seconds = 5;
+    seconds = 10;
     $("#timeTitle").html("<h3>Time Remaining");    
     $("#timeLeft").html(seconds);
     answered === true;

@@ -2,7 +2,7 @@
 UCLA's week 5 coding bootcamp involved creating a trivia game with a timer.
 
 # How to Play
-Love "The Office"? Test your trivia knowledge. There are 10 questions and you have 5 seconds to select your answer. Play the game [here](http://krizel4.github.io/TriviaGame)
+Love "The Office"? Test your trivia knowledge. There are 10 questions and you have 10 seconds to select your answer. Play the game [here](http://krizel4.github.io/TriviaGame)
 
 # Languages Used
 * HTML5
