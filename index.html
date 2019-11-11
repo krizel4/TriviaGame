@@ -6,34 +6,52 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:300|Arvo&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <title>Trivia Game</title>
 </head>
 <body>
 
-    <!-- GAME BODY -->
-    <div class="container">
-        <h1>The Office Trivia</h1>
+
     
-    <!-- QUESTIONS -->
-    <div id="trivia-questions">
-    </div>
+    <div class="container"> 
 
-    <!-- TIMER -->
-    <div id="timer">
+            <h1 class="title">The Office Trivia</h1>
+            <p>&nbsp;</p>
 
-    </div>
+            <!-- SPLASH: GAME -->
+            <p><button type="button" class="btn btn-dark" id="startButton">START THE GAME</button></p>
+            
+    
+            <div id="startGame"> 
 
-    <!-- FINAL SCORE -->
-    <div class="hidden" id="results">
-            <h2 id="winner-loser"></h2>
-            <p id="correct-answers"></p>
-            <p id="incorrect-answers"></p>
-            <p id="unanswered"></p>
-          </div>
+                <!-- QUESTION -->
 
+                <div class="triviasection">
+
+                    <div id="timeTitle" class="timeStyle"></div>
+                    <div id="timeLeft"></div>
+                        <br/><br/>
+                    <div id="currentQuestion"></div>
+                        <br/>
+                    <div class="question"></div>
+                        <br/>
+                    <div class="choicesList"></div>
+        
+                <!-- ANSWER -->
+                    <div id="result"></div>
+                    <div id="correctedAnswer"></div>
+                    <div id="gif"></div>
+        
+                <!-- FINAL SCORE -->
+                    <div id="finalScore"></div>
+                    <div id="correctAnswers"></div>
+                    <div id="wrongAnswers"></div>
+                    <div id="unanswered"></div>
+                    <div id="reset"></div>
+
+            </div>
+    
     </div>
 
     <!-- jQuery -->
